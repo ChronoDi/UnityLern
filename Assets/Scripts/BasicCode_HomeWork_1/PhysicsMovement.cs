@@ -55,7 +55,6 @@ public class PhysicsMovement : MonoBehaviour
             _animator.SetBool("isGrounded", false);
             _velocity.y = _jumpHeight;
         }
-        
 
         _animator.SetFloat("speed", Math.Abs(userInput));
         _spriteRenderer.flipX = _targetVelocity.x >= 0 ? false : true;
