@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class InvisibleWall : MonoBehaviour
 {
     [SerializeField] DoorOpenner _doorStatus;
@@ -15,6 +16,6 @@ public class InvisibleWall : MonoBehaviour
     
     void Update()
     {
-        _wallCollider.enabled = _doorStatus.IsOpen ? false : true;
+        _wallCollider.enabled = !_doorStatus.IsOpen;
     }
 }

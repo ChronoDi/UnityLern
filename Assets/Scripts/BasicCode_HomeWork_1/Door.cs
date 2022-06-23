@@ -5,14 +5,13 @@ using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
-    private bool _isReached;
-    public bool IsReached => _isReached;
+    public bool IsReached { get; private set; }
         
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
-            _isReached = true;
+            IsReached = true;
         }
     }
 
@@ -20,7 +19,7 @@ public class Door : MonoBehaviour
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
-            _isReached = false;
+            IsReached = false;
         }
     }
 }

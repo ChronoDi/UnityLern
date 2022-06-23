@@ -8,13 +8,12 @@ public class DoorOpenner : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Door _door;
 
-    private bool _isOpen;
-
-    public bool IsOpen => _isOpen;
+    private const string _isOpen = "isOpen";
+    public bool IsOpen { get; private set; }
 
     private void Start()
     {
-        _isOpen = _animator.GetBool("isOpen");
+        IsOpen = _animator.GetBool(_isOpen);
     }
 
     private void FixedUpdate()
@@ -26,7 +25,7 @@ public class DoorOpenner : MonoBehaviour
     }
     private void ChangeDoorStatus()
     {
-        _isOpen = !_isOpen;
-        _animator.SetBool("isOpen", _isOpen);
+        IsOpen = !IsOpen;
+        _animator.SetBool(_isOpen, IsOpen);
     }
 }
