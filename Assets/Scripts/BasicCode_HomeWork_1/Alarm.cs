@@ -12,13 +12,6 @@ public class Alarm : MonoBehaviour
     private AudioSource _source;
     private float _targetVolume;
 
-    private void Start()
-    {
-        _source = GetComponent<AudioSource>();
-        _source.volume = _maxVolume;
-        _targetVolume = _minVolume;
-    }
-
     public void StartAlarm()
     {
         _source.Play();
@@ -29,6 +22,13 @@ public class Alarm : MonoBehaviour
     {
         StopCoroutine(ChangeVolume());
         _source.Stop();
+    }
+
+    private void Start()
+    {
+        _source = GetComponent<AudioSource>();
+        _source.volume = _maxVolume;
+        _targetVolume = _minVolume;
     }
 
     private IEnumerator ChangeVolume()
