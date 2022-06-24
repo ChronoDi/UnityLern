@@ -33,8 +33,7 @@ public class Alarm : MonoBehaviour
 
     private IEnumerator ChangeVolume()
     {
-        int needFps = 30;
-        var waitForFewSecond = new WaitForSeconds(1f / needFps);
+        var WaitForFixedUpdate = new WaitForFixedUpdate();
 
         while (_source.isPlaying)
         {
@@ -49,7 +48,7 @@ public class Alarm : MonoBehaviour
                 _targetVolume = _minVolume;
             }
 
-            yield return waitForFewSecond;
+            yield return WaitForFixedUpdate;
         }
     }
 }
