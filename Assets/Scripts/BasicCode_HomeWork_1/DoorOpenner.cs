@@ -9,6 +9,7 @@ public class DoorOpenner : MonoBehaviour
     [SerializeField] private Door _door;
 
     private const string _fromAnimatorIsOpen = "isOpen";
+
     public bool IsOpen { get; private set; }
 
     private void Start()

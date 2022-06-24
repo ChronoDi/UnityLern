@@ -24,6 +24,8 @@ public class PhysicsMovement : MonoBehaviour
 
     private const float _minMoveDistance = 0.001f;
     private const float _shellRadius = 0.001f;
+    private const string _fromAnimatorIsGrounded = "isGrounded";
+    private const string _fromAnimatorSpeed = "speed";
 
     private void OnEnable()
     {
@@ -47,16 +49,16 @@ public class PhysicsMovement : MonoBehaviour
 
         if (_isGrounded)
         {
-            _animator.SetBool("isGrounded", true);
+            _animator.SetBool(_fromAnimatorIsGrounded, true);
         }
 
         if (Input.GetKey(KeyCode.Space) && _isGrounded)
         {
-            _animator.SetBool("isGrounded", false);
+            _animator.SetBool(_fromAnimatorIsGrounded, false);
             _velocity.y = _jumpHeight;
         }
 
-        _animator.SetFloat("speed", Math.Abs(userInput));
+        _animator.SetFloat(_fromAnimatorSpeed, Math.Abs(userInput));
         _spriteRenderer.flipX = _targetVelocity.x >= 0 ? false : true;
     }
 

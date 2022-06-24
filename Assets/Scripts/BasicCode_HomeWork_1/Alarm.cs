@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Alarm : MonoBehaviour
 {
-    [SerializeField] float _maxVolume;
-    [SerializeField] float _minVolume;
-    [SerializeField] float _deltaVolume;
+    [SerializeField] private float _maxVolume;
+    [SerializeField] private float _minVolume;
+    [SerializeField] private float _deltaVolume;
 
     private AudioSource _source;
     private float _targetVolume;
