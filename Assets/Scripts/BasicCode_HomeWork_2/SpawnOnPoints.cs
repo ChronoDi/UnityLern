@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SpawnOnPoints : MonoBehaviour
 {
-    [SerializeField] private GameObject _template;
+    [SerializeField] private EnemySlime _template;
     [SerializeField] private float _heightSpawn;
     [SerializeField] private float _timeSpawn;
 
     private Transform[] _spawnPoints;
     private int _currentPoint;
-    private float _currentTime;
+    private bool _isSpawning = true;
 
     private void Start()
     {
@@ -20,25 +20,26 @@ public class SpawnOnPoints : MonoBehaviour
         {
             _spawnPoints[i] = transform.GetChild(i);
         }
+
+        StartCoroutine(SpawnEnemy());
     }
 
-    private void Update()
+    private IEnumerator SpawnEnemy()
     {
-        if (_currentTime == 0)
+        var waitTimeSpawn = new WaitForSeconds(_timeSpawn);
+
+        while (_isSpawning)
         {
             Instantiate(_template, new Vector2(_spawnPoints[_currentPoint].position.x, _spawnPoints[_currentPoint].position.y + _heightSpawn), Quaternion.identity);
 
             if (_currentPoint == _spawnPoints.Length - 1)
             {
                 _currentPoint = 0;
-            } 
-            else 
+            }
+            else
                 _currentPoint++;
+
+            yield return waitTimeSpawn;
         }
-
-        _currentTime += Time.deltaTime;
-
-        if (_currentTime >= _timeSpawn) 
-            _currentTime = 0;
     }
 }
