@@ -19,7 +19,7 @@ public class EnemySlime : MonoBehaviour
     private GameObject _secondPoint;
     private Transform _targetPoint;
 
-    private const string fromAnimatorSpeed = "Speed";
+    private const string FromAnimatorSpeed = "Speed";
 
     private void Start()
     {
@@ -48,7 +48,7 @@ public class EnemySlime : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, _targetPoint.position, _speed * Time.deltaTime);
 
-            _animator.SetFloat(fromAnimatorSpeed, _speed);
+            _animator.SetFloat(FromAnimatorSpeed, _speed);
 
             if (transform.position == _firstPoint.transform.position)
             {
