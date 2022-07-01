@@ -22,14 +22,6 @@ public class EnemySlime : MonoBehaviour
 
     private const string FromAnimatorSpeed = "Speed";
 
-    public void TakeHit()
-    {
-        Instantiate(_deadSlime, transform.position, Quaternion.identity);
-        Destroy(_firstPoint);
-        Destroy(_secondPoint);
-        Destroy(gameObject);
-    }
-
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -72,4 +64,11 @@ public class EnemySlime : MonoBehaviour
         }
     }
 
+    public void TakeHit()
+    {
+        Instantiate(_deadSlime, transform.position, Quaternion.identity);
+        Destroy(_firstPoint);
+        Destroy(_secondPoint);
+        Destroy(gameObject);
+    }
 }

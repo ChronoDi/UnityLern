@@ -21,17 +21,10 @@ public class Player : MonoBehaviour
     private AudioSource _audioSource;
     private bool _isTakeHit;
  
-    private const string fromAnimatorTakeHit = "takeHit";
+    private const string FromAnimatorTakeHit = "takeHit";
 
     public int CurrentHealth { get; private set; }
     public int MaxHealth { get; private set; }
-
-    public void Win()
-    {
-        _camera.transform.parent = null;
-        Instantiate(_dancer, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-    }
 
     private void Start()
     {
@@ -66,6 +59,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Win()
+    {
+        _camera.transform.parent = null;
+        Instantiate(_dancer, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
     private IEnumerator StartFlashing(EnemySlime enemySlime)
     {
         _isTakeHit = true;
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
 
     private void TakeHit(EnemySlime enemySlime)
     {
-        _animator.SetTrigger(fromAnimatorTakeHit);
+        _animator.SetTrigger(FromAnimatorTakeHit);
         _audioSource.Play();
 
         StartCoroutine(StartFlashing(enemySlime));

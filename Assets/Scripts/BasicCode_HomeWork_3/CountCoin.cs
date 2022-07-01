@@ -5,29 +5,41 @@ using UnityEngine.Events;
 
 public class CountCoin : MonoBehaviour
 {
+    [SerializeField] private ShowCoins _showCoins;
     [SerializeField] private UnityEvent _allCoinTaken;
 
-    private bool _isNotified;  
-
-    public int TakenCoins { get; private set; } 
-    public int AllCoins { get; private set; } 
-
+    private Item[] _coins;
+    private int _takenCoins;
+    private int _allCoins;
 
     private void Start()
     {
-        AllCoins = transform.childCount;
-        _isNotified = false;
+        _allCoins = transform.childCount;
+        _takenCoins = 0;
+
+        _showCoins.EditText(_takenCoins, _allCoins);
+
+        _coins = gameObject.GetComponentsInChildren<Item>();
+
+        foreach (var coin in _coins)
+            coin.Taken += TakeCoin;
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        TakenCoins = AllCoins - transform.childCount;
+        foreach (var coin in _coins)
+            coin.Taken -= TakeCoin;
+    }
 
-        if (transform.childCount == 0 && _isNotified == false)
+    public void TakeCoin()
+    {
+        _takenCoins++;
+
+        _showCoins.EditText(_takenCoins, _allCoins);
+
+        if (_takenCoins == _allCoins)
         {
             _allCoinTaken.Invoke();
-            _isNotified = true;
         }
-        
     }
 }

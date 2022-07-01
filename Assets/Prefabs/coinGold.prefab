@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1470013182755414454}
   - component: {fileID: 1470013182755414455}
   - component: {fileID: 1470013182755414449}
-  - component: {fileID: 1470013182755414452}
+  - component: {fileID: 8984158376929786635}
   m_Layer: 0
   m_Name: coinGold
   m_TagString: Untagged
@@ -209,7 +209,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1470013182755414452
+--- !u!114 &8984158376929786635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _liftingHeight: 2
-  _deltaLiftingHeight: 0.015
+  _deltaLiftingHeight: 0.1
   _itemTaken:
     m_PersistentCalls:
       m_Calls: []

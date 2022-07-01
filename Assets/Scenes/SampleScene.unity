@@ -2459,6 +2459,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 603728043}
     m_Modifications:
+    - target: {fileID: 374589392792234836, guid: af8eaf8d7c0219241a4246feed604ee0, type: 3}
+      propertyPath: _showCoins
+      value: 
+      objectReference: {fileID: 1443856010}
     - target: {fileID: 1470013182755414450, guid: af8eaf8d7c0219241a4246feed604ee0, type: 3}
       propertyPath: m_Name
       value: coinGold (18)
@@ -3207,6 +3211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4302c87e40170440912586786abfa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showCoins: {fileID: 1443856010}
   _allCoinTaken:
     m_PersistentCalls:
       m_Calls:
@@ -29808,6 +29813,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1470013182755414453, guid: af8eaf8d7c0219241a4246feed604ee0, type: 3}
   m_PrefabInstance: {fileID: 1969321234}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1443856010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 712065242493027892, guid: 5947ccf45549a114f87ba1fe881e377c, type: 3}
+  m_PrefabInstance: {fileID: 8477210162558969008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d97d0be9b446f409d68ec7dbd1ca8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1446301031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31681,6 +31697,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: coinGold (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 1470013182755414452, guid: af8eaf8d7c0219241a4246feed604ee0, type: 3}
+      propertyPath: _itemTaken.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 603728044}
     - target: {fileID: 1470013182755414453, guid: af8eaf8d7c0219241a4246feed604ee0, type: 3}
       propertyPath: m_RootOrder
       value: 59
@@ -32213,6 +32233,10 @@ PrefabInstance:
       propertyPath: _countCoin
       value: 
       objectReference: {fileID: 603728044}
+    - target: {fileID: 712065242493027893, guid: 5947ccf45549a114f87ba1fe881e377c, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 712065242694492352, guid: 5947ccf45549a114f87ba1fe881e377c, type: 3}
       propertyPath: m_RootOrder
       value: 0

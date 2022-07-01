@@ -8,11 +8,10 @@ public class Heart : MonoBehaviour
 {
     private Image _image;
 
-    public void ChangeSprite(Sprite sprite) => _image.sprite = sprite;
-
     private void Start()
     {
         _image = GetComponent<Image>();
     }
 
+    public void ChangeSprite(Sprite sprite) => _image.sprite = sprite;
 }

@@ -7,17 +7,15 @@ public class Winner : MonoBehaviour
 {
     private AudioSource _audioSource;
 
-    public void Win()
-    {
-        gameObject.SetActive(true);
-        _audioSource.Play();
-
-    }
-
     private void Start()
     {
         gameObject.SetActive(false);
         _audioSource = GetComponent<AudioSource>();
     }
 
+    public void Win()
+    {
+        gameObject.SetActive(true);
+        _audioSource.Play();
+    }
 }

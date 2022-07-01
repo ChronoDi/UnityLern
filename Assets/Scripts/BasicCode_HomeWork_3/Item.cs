@@ -13,6 +13,17 @@ public class Item : MonoBehaviour
     private AudioSource _takeItemSound;
     private BoxCollider2D _boxCollider;
 
+    public event UnityAction Taken
+    {
+        add => _itemTaken.AddListener(value);
+        remove => _itemTaken.RemoveListener(value);
+    } 
+
+    protected void OnDestroy()
+    {
+        _itemTaken.Invoke();
+    }
+
     private void Start()
     {
         _takeItemSound = GetComponent<AudioSource>();
@@ -26,6 +37,7 @@ public class Item : MonoBehaviour
             StartCoroutine(DoOnDestroy());
         }
     }
+
 
     private IEnumerator DoOnDestroy()
     {
@@ -45,10 +57,5 @@ public class Item : MonoBehaviour
             gameObject.transform.position = new Vector2(gameObject.transform.position.x, i);
             yield return null;
         }
-    }
-
-    private void OnDestroy()
-    {
-        _itemTaken.Invoke();
     }
 }

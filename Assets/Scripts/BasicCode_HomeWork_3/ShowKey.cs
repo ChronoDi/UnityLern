@@ -12,15 +12,14 @@ public class ShowKey : MonoBehaviour
 
     public bool IsTaken { get; private set; }
 
-    public void ChangeImage()
-    {
-        _image.sprite = _haveKey;
-        IsTaken = true;
-    }
-
     private void Start()
     {
         _image = GetComponent<Image>();
         IsTaken = false;
+    }
+    public void ChangeImage()
+    {
+        _image.sprite = _haveKey;
+        IsTaken = true;
     }
 }

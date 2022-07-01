@@ -6,8 +6,6 @@ using TMPro;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class ShowCoins : MonoBehaviour
 {
-    [SerializeField] private CountCoin _countCoin;
-
     private TextMeshProUGUI _text;
 
     private void Start()
@@ -15,8 +13,8 @@ public class ShowCoins : MonoBehaviour
         _text = GetComponent<TextMeshProUGUI>();
     }
 
-    private void Update()
+    public void EditText(int takenCoins, int allCoins)
     {
-        _text.text = $"{_countCoin.TakenCoins} / {_countCoin.AllCoins}";
+        _text.text = $"{takenCoins} / {allCoins}";
     }
 }
