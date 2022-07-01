@@ -33,9 +33,7 @@ public class SpawnOnPoints : MonoBehaviour
             Instantiate(_template, new Vector2(_spawnPoints[_currentPoint].position.x, _spawnPoints[_currentPoint].position.y + _heightSpawn), Quaternion.identity);
 
             if (_currentPoint == _spawnPoints.Length - 1)
-            {
                 _currentPoint = 0;
-            }
             else
                 _currentPoint++;
 
