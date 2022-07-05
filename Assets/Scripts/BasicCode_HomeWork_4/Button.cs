@@ -9,7 +9,7 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private Color _upColor = Color.red;
     [SerializeField] private Color _downColor = Color.black;
-    [SerializeField] float _textSize = 36;
+    [SerializeField] private float _textSize = 36;
 
     private Color _currentColor;
     private float _currentTextSize;
