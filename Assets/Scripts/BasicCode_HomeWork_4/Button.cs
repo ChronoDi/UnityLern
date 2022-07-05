@@ -7,8 +7,8 @@ using UnityEngine.EventSystems;
 public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] Color _upColor = Color.red;
-    [SerializeField] Color _downColor = Color.black;
+    [SerializeField] private Color _upColor = Color.red;
+    [SerializeField] private Color _downColor = Color.black;
     [SerializeField] float _textSize = 36;
 
     private Color _currentColor;
