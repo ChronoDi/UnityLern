@@ -252,7 +252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6584254978169153552, guid: 26697ffb4a4add0458f457f1acfdb45c, type: 3}
       propertyPath: m_Name
-      value: DoorWithText
+      value: DoorWithText Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8725679833789191326, guid: 26697ffb4a4add0458f457f1acfdb45c, type: 3}
       propertyPath: m_RootOrder
@@ -260,11 +260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8725679833789191326, guid: 26697ffb4a4add0458f457f1acfdb45c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 84.29562
+      value: 149.37
       objectReference: {fileID: 0}
     - target: {fileID: 8725679833789191326, guid: 26697ffb4a4add0458f457f1acfdb45c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.501
+      value: 19.5
       objectReference: {fileID: 0}
     - target: {fileID: 8725679833789191326, guid: 26697ffb4a4add0458f457f1acfdb45c, type: 3}
       propertyPath: m_LocalPosition.z

@@ -8,7 +8,7 @@ public class ShowCoins : MonoBehaviour
 {
     private TextMeshProUGUI _text;
 
-    private void Start()
+    private void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
     }

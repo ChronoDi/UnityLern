@@ -72,6 +72,8 @@ public class Player : MonoBehaviour
         float deltaTime = 0.2f;
         var WaitDeltaTime = new WaitForSeconds(deltaTime);
 
+        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), enemySlime.GetComponent<BoxCollider2D>(), true);
+
         for (float currentTime = 0;  currentTime < immortalityTime; currentTime += deltaTime)
         {
             if (_spriteRenderer.material.color.a == 1f)
@@ -81,6 +83,8 @@ public class Player : MonoBehaviour
 
             yield return WaitDeltaTime;
         }
+
+        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), enemySlime.GetComponent<BoxCollider2D>(), false);
 
         _isTakeHit = false;
     }
