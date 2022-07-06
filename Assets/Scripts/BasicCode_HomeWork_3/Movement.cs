@@ -38,12 +38,13 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         _animator.SetBool(FromAnimatorIsGrounded, _isGrounded);
-
+        
         float move = Input.GetAxis("Horizontal");
 
         _animator.SetFloat(FromAnimatorSpeed, Mathf.Abs(move));
         _rigidbody2D.velocity = new Vector2(move * _maxSpeed, _rigidbody2D.velocity.y);
         _spriteRenderer.flipX = move >= 0 ? false : true;
+        
     }
 
     private void Update()

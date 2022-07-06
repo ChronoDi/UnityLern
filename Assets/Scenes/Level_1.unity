@@ -34505,15 +34505,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Winner, winner, chicken dinner!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 57fa438c11d0b0f49ad48daa859ffc18, type: 2}
+  m_sharedMaterial: {fileID: 3272614383851724864, guid: 57fa438c11d0b0f49ad48daa859ffc18, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279571943
-  m_fontColor: {r: 0.9056604, g: 0.08116765, b: 0.08116765, a: 1}
+    rgba: 4280898508
+  m_fontColor: {r: 0.8, g: 0.3254902, b: 0.16078432, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
