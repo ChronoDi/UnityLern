@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
@@ -9,15 +10,13 @@ public class Target : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
     [SerializeField] private DeadPlayer _deadPlayer;
-    [SerializeField] private Slider _healthBar;
     [SerializeField] private AudioSource _damageSound;
     [SerializeField] private AudioSource _healSound;
-    [SerializeField] private float _deltaHealthBar;
+    [SerializeField] private UnityEvent<float> _changed;
 
     private Animator _animator;
     private float _currentHealth;
     private float _currentHealthPercent;
-    private Coroutine _changeHealthBar;
 
     private const string FromAnimatorTakeHit = "takeHit";
 
@@ -25,7 +24,8 @@ public class Target : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _currentHealth = _maxHealth;
-        _healthBar.value = _maxHealth / _currentHealth;
+        _currentHealthPercent = _maxHealth / _currentHealth;
+        _changed.Invoke(_currentHealthPercent);
     }
 
 
@@ -37,7 +37,7 @@ public class Target : MonoBehaviour
         _currentHealth -= damage;
         _currentHealthPercent = _currentHealth / _maxHealth;
 
-        RunCoroutines();
+        _changed.Invoke(_currentHealthPercent);
 
         if (_currentHealth <= 0)
             Die();
@@ -52,7 +52,7 @@ public class Target : MonoBehaviour
             _currentHealth = _currentHealth + health > _maxHealth ? _maxHealth : _currentHealth + health;
             _currentHealthPercent = _currentHealth / _maxHealth;
 
-            RunCoroutines();
+            _changed.Invoke(_currentHealthPercent);
         }
     }
 
@@ -61,22 +61,4 @@ public class Target : MonoBehaviour
         Instantiate(_deadPlayer, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
-
-    private IEnumerator ChangeHealthBar(float needValue)
-    {
-        while (_healthBar.value != needValue)
-        {
-            _healthBar.value = Mathf.MoveTowards(_healthBar.value, needValue, _deltaHealthBar);
-            yield return null;
-        }
-    }
-
-    private void RunCoroutines()
-    {
-        if (_changeHealthBar != null)
-            StopCoroutine(_changeHealthBar);
-
-        _changeHealthBar = StartCoroutine(ChangeHealthBar(_currentHealthPercent));
-    }
-
 }
