@@ -12,11 +12,10 @@ public class Target : MonoBehaviour
     [SerializeField] private DeadPlayer _deadPlayer;
     [SerializeField] private AudioSource _damageSound;
     [SerializeField] private AudioSource _healSound;
-    [SerializeField] private UnityEvent<float> _changed;
+    [SerializeField] private UnityEvent<float, float> _changed;
 
     private Animator _animator;
     private float _currentHealth;
-    private float _currentHealthPercent;
 
     private const string FromAnimatorTakeHit = "takeHit";
 
@@ -24,8 +23,7 @@ public class Target : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _currentHealth = _maxHealth;
-        _currentHealthPercent = _maxHealth / _currentHealth;
-        _changed.Invoke(_currentHealthPercent);
+        _changed.Invoke(_currentHealth, _maxHealth);
     }
 
 
@@ -35,9 +33,8 @@ public class Target : MonoBehaviour
         _damageSound.Play();
 
         _currentHealth -= damage;
-        _currentHealthPercent = _currentHealth / _maxHealth;
 
-        _changed.Invoke(_currentHealthPercent);
+        _changed.Invoke(_currentHealth, _maxHealth);
 
         if (_currentHealth <= 0)
             Die();
@@ -48,11 +45,8 @@ public class Target : MonoBehaviour
         if (_currentHealth != _maxHealth)
         {
             _healSound.Play();
-
-            _currentHealth = _currentHealth + health > _maxHealth ? _maxHealth : _currentHealth + health;
-            _currentHealthPercent = _currentHealth / _maxHealth;
-
-            _changed.Invoke(_currentHealthPercent);
+            _currentHealth = Mathf.Clamp(_currentHealth + health, 0, _maxHealth);
+            _changed.Invoke(_currentHealth, _maxHealth);
         }
     }
 

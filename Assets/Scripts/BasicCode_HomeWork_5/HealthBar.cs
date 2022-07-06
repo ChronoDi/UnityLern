@@ -16,8 +16,10 @@ public class HealthBar : MonoBehaviour
         _healthBar = GetComponent<Slider>();
     }
 
-    public void RunCoroutines(float currentHealthPercent)
+    public void RunCoroutines(float currentHealth, float maxHealth)
     {
+        float currentHealthPercent = currentHealth / maxHealth;
+
         if (_changeHealthBar != null)
             StopCoroutine(_changeHealthBar);
 
