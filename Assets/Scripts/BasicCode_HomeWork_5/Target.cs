@@ -31,12 +31,10 @@ public class Target : MonoBehaviour
     {
         _animator.SetTrigger(FromAnimatorTakeHit);
         _damageSound.Play();
-
-        _currentHealth -= damage;
-
+        _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _maxHealth);
         _changed.Invoke(_currentHealth, _maxHealth);
 
-        if (_currentHealth <= 0)
+        if (_currentHealth == 0)
             Die();
     }
 
